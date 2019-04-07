@@ -87,17 +87,17 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
         Cursor c = db.rawQuery(query, null);
-        String[][] titles = new String[c.getCount()][c.getColumnCount()];
+        String[][] notes = new String[c.getCount()][c.getColumnCount()];
         c.moveToFirst();
         for(int i = 0; !c.isAfterLast(); i++) {
             int j =0;
             while(j < c.getColumnCount()) {
-                titles[i][j++] = c.getString(c.getColumnIndex(COLUMN_ID));
-                titles[i][j++] = c.getString(c.getColumnIndex(COLUMN_TITLE));
-                titles[i][j++] = c.getString(c.getColumnIndex(COLUMN_NOTE));
+                notes[i][j++] = c.getString(c.getColumnIndex(COLUMN_ID));
+                notes[i][j++] = c.getString(c.getColumnIndex(COLUMN_TITLE));
+                notes[i][j++] = c.getString(c.getColumnIndex(COLUMN_NOTE));
             }
             c.moveToNext();
         }
-        return titles;
+        return notes;
     }
 }
