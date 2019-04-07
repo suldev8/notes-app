@@ -25,7 +25,7 @@ public class AddNote extends AppCompatActivity {
     public void addNote(View view) {
         String title = edTitle.getText().toString();
         if(title.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Sorry, you must write a title", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "Sorry, you must write a title", Toast.LENGTH_SHORT).show();
             return;
         }
         String note = edNote.getText().toString();

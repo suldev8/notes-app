@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ShowNote extends AppCompatActivity {
 
@@ -43,11 +44,16 @@ public class ShowNote extends AppCompatActivity {
     public void updNote(View view) {
         dbHandler = new DBHandler(this);
 
+
+
         id = getIntent().getStringExtra("id");
         title = edTitle.getText().toString();
         note = edNote.getText().toString();
-        System.out.println(title);
 
+        if(title.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Sorry, you must write a title", Toast.LENGTH_SHORT).show();
+            return;
+        }
         dbHandler.updNote(id, title, note);
         dbHandler.close();
         finish();
