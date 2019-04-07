@@ -32,7 +32,4 @@ public class AddNote extends AppCompatActivity {
         dbHandler.addNote(title, note);
         finish();
     }
-    public void delNote(View view) {
-
-    }
 }
